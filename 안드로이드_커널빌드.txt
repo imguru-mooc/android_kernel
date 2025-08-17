@@ -1,0 +1,44 @@
+mkdir -p ~/android-kernel
+cd ~/android-kernel/android14-6.1
+
+repo init -u https://android.googlesource.com/kernel/manifest -b common-android14-6.1
+repo sync -j$(nproc)
+
+tools/bazel build //common:kernel_x86_64_dist
+tools/bazel build //common-modules/virtual-device:virtual_device_x86_64_dist
+
+cd ~/android/kernel/prebuilts/6.1/
+mv x86_64 x86_64-orig
+mkdir x86_64
+cd x86_64
+cp /root/android-kernel/out/kernel_x86_64/dist/bzImage  kernel-6.1
+cp /root/android-kernel/out/kernel_x86_64/dist/*.ko .
+
+cd ~/android/kernel/prebuilts/common-modules/virtual-device/6.1/
+mv x86_64 x86_64-orig
+mkdir x86_64
+cd x86_64
+cp /root/android-kernel/out/virtual_device_x86_64/dist/*.ko .
+
+cd ~/android
+lunch  후  78번 선택
+m -j$(nproc)
+m emu_img_zip
+ls /root/android/out/target/product/emulator_car_x86_64
+
+sdk-repo-linux-system-images-eng.root.zip 파일 windows C:\aaosp14 디렉토리로 다운로드 후 압축 해제
+
+아래 bat 파일 수정 후 실행
+@echo off
+set EMULATOR=%LOCALAPPDATA%\Android\Sdk\emulator\emulator.exe
+set AVD_NAME=Automotive_1408p_landscape
+
+%EMULATOR% ^
+-sysdir  C:\aaosp14\x86_64 ^
+-avd %AVD_NAME% ^
+-writable-system ^
+-no-snapshot-load ^
+-no-snapshot-save ^
+-verbose ^
+-show-kernel ^
+-qemu   -append "androidboot.selinux=permissive"
