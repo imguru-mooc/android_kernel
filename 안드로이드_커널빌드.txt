@@ -7,6 +7,10 @@ repo sync -j$(nproc)
 tools/bazel build //common:kernel_x86_64_dist
 tools/bazel build //common-modules/virtual-device:virtual_device_x86_64_dist
 
+tools/bazel run //common:kernel_x86_64_dist -- --destdir=/home/worker/android-kernel/out/kernel_x86_64_dist
+
+tools/bazel run //common-modules/virtual-device:virtual_device_x86_64_dist -- --destdir=/home/worker/android-kernel/out/virtual_device_x86_64_dist
+
 cd ~/android/kernel/prebuilts/6.1/
 mv x86_64 x86_64-orig
 mkdir x86_64
