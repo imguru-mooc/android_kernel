@@ -1,2 +1,11 @@
 find .  -type f \( -name '*.c' -o -name '*.cc' -o -nam
 e '*.cpp' -o -name '*.h' -o -name '*.hpp' \)         -exec ctags -o c_tags -a {} +
+
+cd ~
+vi .vimrc
+set cindent
+set autoindent
+set sw=4
+set ts=4
+set tags+=/root/android-kernel/c_tags
+set tags+=/root/android/c_tags
