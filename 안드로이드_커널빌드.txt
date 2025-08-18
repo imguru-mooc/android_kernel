@@ -19,7 +19,8 @@ cd ~/android/kernel/prebuilts/common-modules/virtual-device/6.1/
 mv x86_64 x86_64-orig
 mkdir x86_64
 cd x86_64
-cp /root/android-kernel/out/virtual_device_x86_64/dist/*.ko .
+cp /home/worker/android-kernel/out/bazel/output_user_root/f9a73d91fb5897801ca548494c44b54f/execroot/__main__/bazel-out/k8-fastbuild/bin/common-modules/virtual-device/virtual_device_x86_64/*.ko .
+
 
 cd ~/android
 lunch  후  78번 선택
