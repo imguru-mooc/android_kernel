@@ -1,2 +1,2 @@
-find . -name -type  \( -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' \) \
-        -exec ctags -o c_tags -a {} +
+find .  -type f \( -name '*.c' -o -name '*.cc' -o -nam
+e '*.cpp' -o -name '*.h' -o -name '*.hpp' \)         -exec ctags -o c_tags -a {} +
