@@ -15,15 +15,14 @@ cd ~/android/kernel/prebuilts/6.1/
 mv x86_64 x86_64-orig
 mkdir x86_64
 cd x86_64
-cp /home/worker/android-kernel/out/bazel/output_user_root/f9a73d91fb5897801ca548494c44b54f/execroot/__main__/bazel-out/k8-fastbuild/bin/common/kernel_x86_64/bzImage  kernel-6.1
-
-find /home/worker/android-kernel/out/bazel/output_user_root/f9a73d91fb5897801ca548494c44b54f/execroot/__main__/bazel-out/k8-fastbuild/bin/common/kernel_x86_64/ -name *.ko -exec cp {} . \;
+cp /home/worker/android-kernel/out/kernel_x86_64_dist/bzImage  kernel-6.1
+cp /home/worker/android-kernel/out/kernel_x86_64_dist/*.ko .
 
 cd ~/android/kernel/prebuilts/common-modules/virtual-device/6.1/
 mv x86_64 x86_64-orig
 mkdir x86_64
 cd x86_64
-cp /home/worker/android-kernel/out/bazel/output_user_root/f9a73d91fb5897801ca548494c44b54f/execroot/__main__/bazel-out/k8-fastbuild/bin/common-modules/virtual-device/virtual_device_x86_64/*.ko .
+cp /home/worker/android-kernel/out/virtual_device_x86_64_dist/*.ko .
 
 
 cd ~/android
