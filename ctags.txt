@@ -7,5 +7,5 @@ set cindent
 set autoindent
 set sw=4
 set ts=4
-set tags+=/root/android-kernel/c_tags
-set tags+=/root/android/c_tags
+set tags+=/home/worker/android-kernel/c_tags
+set tags+=/home/worker/android/c_tags
