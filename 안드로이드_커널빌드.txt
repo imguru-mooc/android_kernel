@@ -26,6 +26,7 @@ cp /home/worker/android-kernel/out/virtual_device_x86_64_dist/*.ko .
 
 
 cd ~/android
+source build/envsetup.sh
 lunch  후  78번 선택
 m -j$(nproc)
 m emu_img_zip
