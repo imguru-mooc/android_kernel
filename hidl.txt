@@ -1,20 +1,19 @@
-# AOSP 루트에서 실행
+# 출력 디렉터리
 OUTDIR=hidl_test/1.0/gen
-
 mkdir -p "$OUTDIR"
 
 # 헤더 생성
 hidl-gen \
   -Lc++-headers \
   -o "$OUTDIR" \
-  -r android.hardware.samples:hidl_test \
+  -r vendor.example.led:hidl_test \
   -r android.hidl:system/libhidl/transport \
-  android.hardware.samples@1.0
+  vendor.example.led@1.0
 
 # 소스 생성
 hidl-gen \
   -Lc++-sources \
   -o "$OUTDIR" \
-  -r android.hardware.samples:hidl_test \
+  -r vendor.example.led:hidl_test \
   -r android.hidl:system/libhidl/transport \
-  android.hardware.samples@1.0
+  vendor.example.led@1.0
