@@ -1,0 +1,12 @@
+<!-- 파일명 예: /vendor/etc/vintf/manifest/vendor.example.led.xml -->
+<manifest version="1.0" type="device">
+  <hal format="hidl">
+    <name>vendor.example.led</name>
+    <transport>hwbinder</transport>
+    <version>1.0</version>
+    <interface>
+      <name>ILed</name>
+      <instance>default</instance>
+    </interface>
+  </hal>
+</manifest>
