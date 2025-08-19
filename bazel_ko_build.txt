@@ -22,7 +22,8 @@ void my_exit(void)
 
 module_init(my_init);
 
-3. Makefile 에 아래 내용 추가 
+3. /home/worker/android-kernel/common/drivers/net/can 에
+Makefile 에 아래 내용 추가 
 obj-$(CONFIG_CAN_VCAN)      += vcan.o hello.o
 
 4. /home/worker/android-kernel 에서 빌드 
