@@ -1,0 +1,35 @@
+ko 빌드 
+
+1. common/modules.bzl 파일 내부에 아래 추가 
+"drivers/net/can/hello.ko",
+
+2. /home/worker/android-kernel/common/drivers/net/can 에 hello.c 추가 
+#include <linux/module.h>
+#include <linux/kernel.h>
+
+MODULE_LICENSE("GPL");
+
+int my_init(void)
+{
+    printk("my_init()\n");
+    return 0;
+}
+
+void my_exit(void)
+{
+    printk("my_exit()\n");
+}
+
+module_init(my_init);
+
+3. Makefile 에 아래 내용 추가 
+obj-$(CONFIG_CAN_VCAN)      += vcan.o hello.o
+
+4. /home/worker/android-kernel 에서 빌드 
+tools/bazel run //common:kernel_x86_64_dist
+
+에러시 조치 사항 
+cd common
+make mrproper
+
+module_exit(my_exit);
