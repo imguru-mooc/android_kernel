@@ -21,6 +21,7 @@ void my_exit(void)
 }
 
 module_init(my_init);
+module_exit(my_exit);
 
 3. /home/worker/android-kernel/common/drivers/net/can 에
 Makefile 에 아래 내용 추가 
