@@ -1,0 +1,5 @@
+aidl --lang=cpp \
+  -I . \
+  -o . \
+  -h . \
+  IMyDataCallback.aidl
