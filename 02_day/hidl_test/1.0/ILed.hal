@@ -1,0 +1,6 @@
+package vendor.example.led@1.0;
+
+interface ILed {
+    LEDON();   
+};
+

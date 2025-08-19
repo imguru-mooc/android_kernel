@@ -1,0 +1,47 @@
+
+package {
+    default_visibility: ["//visibility:public"],
+}
+
+cc_library_static {
+    name: "libhidl_simple_gen_led",
+    srcs: ["gen/vendor/example/led/1.0/*.cpp"],
+    export_include_dirs: ["gen"],
+    shared_libs: [
+        "libhidlbase",
+        "libutils",
+        "liblog",
+        "libcutils",
+    ],
+    cflags: ["-Wall", "-Werror"],
+    vendor_available: true,  
+}
+
+cc_binary {
+    name: "hidl_led_server",
+    srcs: ["server/LedServer.cpp"],
+    static_libs: ["libhidl_simple_gen_led"],
+    shared_libs: [
+        "libhidlbase",
+        "libutils",
+        "liblog",
+        "libcutils",
+        "libbase",
+    ],
+    vendor: true,           
+    relative_install_path: "hw",
+}
+
+cc_binary {
+    name: "hidl_led_client",
+    srcs: ["client/LedClient.cpp"],
+    static_libs: ["libhidl_simple_gen_led"],
+    shared_libs: [
+        "libhidlbase",
+        "libutils",
+        "liblog",
+        "libcutils",
+        "libbase",
+    ],
+}
+
