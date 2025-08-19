@@ -33,3 +33,20 @@ tools/bazel run //common:kernel_x86_64_dist
 에러시 조치 사항 
 cd common
 make mrproper
+
+5. 빌드된 이미지 경로
+/home/worker/android-kernel/out/kernel_x86_64/dist/hello.ko
+
+6. 에뮬레이터에 업로드 후 실행
+adb push hello.ko /data
+adb root
+adb shell
+에뮬레이터 에서 
+insmod hello.ko
+커널 로그 보기 
+dmesg
+모듈 보기
+lsmod | grep hello
+모듈 내리기 
+rmmod hello
+
