@@ -1,0 +1,6 @@
+adb root
+adb remount
+adb shell 'mkdir -p /vendor/etc/vintf/manifest'
+adb push vendor.example.led.xml /vendor/etc/vintf/manifest/
+
+adb shell setprop ctl.restart hwservicemanager
