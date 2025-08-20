@@ -1,4 +1,5 @@
 # 출력 디렉터리
+cd ~/android/
 OUTDIR=hidl_test/1.0/gen
 mkdir -p "$OUTDIR"
 
