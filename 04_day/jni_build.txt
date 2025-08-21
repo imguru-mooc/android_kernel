@@ -4,12 +4,12 @@ javac -h . Hello.java
 g++ -c Hello.c -fPIC
 find /usr -name jni.h
 find /usr -name jni_md.h
-g++ -c Hello.c -fPIC -I/usr/lib/jvm/java-11-openjdk-amd64/include/ -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux/
+g++ -c Hello.c -fPIC -I/usr/lib/jvm/java-11-openjdk-amd64/include/ -I/usr/lib/jvm/java-11-openjdk-amd64/include/linux/
 g++ -shared Hello.o -o libHello.so
 java Hello
 java -Djava.library.path=. Hello
 --------------------------------------------------------------------------------------------------------------------
-g++ invocation.cpp -I/usr/lib/jvm/java-11-openjdk-amd64/include/ -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux/ -L/usr/lib/jvm/java-11-openjdk-amd64/lib/server/ -ljvm
+g++ invocation.cpp -I/usr/lib/jvm/java-11-openjdk-amd64/include/ -I/usr/lib/jvm/java-11-openjdk-amd64/include/linux/ -L/usr/lib/jvm/java-11-openjdk-amd64/lib/server/ -ljvm
 
 export LD_LIBRARY_PATH=/usr/lib/jvm/java-11-openjdk-amd64/lib/server/
 
